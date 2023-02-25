@@ -1,0 +1,157 @@
+body {
+    font-family: 'Luckiest Guy', cursive;
+    margin: 0;
+    background-color: #e6e6c0;
+}
+
+.header-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-color: #26013f;
+}
+
+.header-section h1 {
+    font-size: 42px;
+    font-weight: lighter;
+    color: #b494b7;
+}
+
+.gameRule {
+    margin-bottom: 75px;
+    text-align: center;
+    color: #26013f;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.playerStats {
+    width: 400px;
+    border: solid #26013f 4px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    margin: 5px 0;
+    color: #42436e;
+}
+
+.button-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #e6e6c0;
+    padding: 20px 0;
+    gap: 25px;
+    margin-bottom: 90px;
+}
+
+.button-wrapper {
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #b494b7;
+    padding: 35px 35px;
+    opacity: 0.8;
+    box-shadow: 5px 5px #26013f;
+    transition-property: box-shadow, transform;
+    transition-duration: 150ms, 150ms;
+    transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.button-wrapper:hover {
+    opacity: 1;
+}
+
+.pressedButton {
+    pointer-events: none;
+    box-shadow: 0px 0px #26013f;
+    transform: translate(5px, 5px);
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+img {
+    width: 85px;
+    height: 85px;
+}
+
+#roundSection {
+    text-align: center;
+    color: #42436e;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    padding: 25px 0;
+    background-color: #e6e6c0;
+    font-size: 20px;
+    gap: 5px;
+    color: #26013f;
+}
+
+footer a img {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+/* MODAL SECTION */
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    transition: all ease 1s;
+}
+
+.modal-content {
+    margin: auto;
+    background-color: #b494b7;
+    width: 300px;
+    height: 210px;
+    margin: auto;
+    border: solid #26013f 4px;
+    border-radius: 5px;
+    color: #26013f;
+    animation: test 400ms ease;
+}
+
+.modal-content p {
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.modal-content button {
+    display: block;
+    margin: auto;
+    height: 40px;
+    width: 120px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 18px;
+    margin: auto;
+    background-color: #e6e6c0;
+    color: #26013f;
+    cursor: pointer;
+}
+
+@keyframes test {
+    0% {
+        transform: scale(0.5, 0.5);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}

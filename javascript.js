@@ -60,16 +60,21 @@ function getComputerChoice(){
     }
 }
 
-//Getting the buttons
+//Getting the buttons and html elements
 const rockBtn = document.getElementById('rock');
 const paperBtn = document.getElementById('paper');
 const scissorBtn = document.getElementById('scissor');
-const pointSection = document.getElementById('pointSection');
+const myChoice = document.getElementById('myChoice');
+const cpuChoice = document.getElementById('cpuChoice');
 const roundWinner = document.getElementById('roundSection');
 const displayWinner = document.getElementById('displayWinner');
 const playerPoints = document.getElementById('playerScore');
 const cpuPoints = document.getElementById('computerScore');
+const modal = document.getElementById('modal');
+const finalResult = document.getElementById('finalResult');
+const restartBtn = document.getElementById('restartBtn');
 
+//Rock button
 rockBtn.addEventListener('click', () => {
     playerChoice = "rock";
 
@@ -82,8 +87,11 @@ rockBtn.addEventListener('click', () => {
     updateScore();
 
     gameIsWon();
+
+    buttonPressed(rockBtn);
 });
 
+//Paper button
 paperBtn.addEventListener('click', () => {
     playerChoice = "paper";
 
@@ -96,8 +104,11 @@ paperBtn.addEventListener('click', () => {
     updateScore();
 
     gameIsWon();
+
+    buttonPressed(paperBtn);
 });
 
+//Scissor button
 scissorBtn.addEventListener('click', () => {
     playerChoice = "scissor";
 
@@ -110,29 +121,75 @@ scissorBtn.addEventListener('click', () => {
     updateScore();
 
     gameIsWon();
+
+    buttonPressed(scissorBtn);
 });
 
+//Restart button
+restartBtn.addEventListener('click', () => {restartGame()});
+
+//Function to update the player and computer choice on the DOM
 function updatePlayerChoice(playerChoice, computerChoice) {
-    pointSection.textContent = `PLAYER CHOICE ${playerChoice.toUpperCase()} | COMPUTER CHOICE: ${computerChoice.toUpperCase()}`;
+    myChoice.textContent = `PLAYER CHOICE: ${playerChoice.toUpperCase()}`;
+    cpuChoice.textContent = `COMPUTER CHOICE: ${computerChoice.toUpperCase()}`;
 }
 
+//Function to see who won the round and print it
 function updateScore() {
+    let test;
+
     if (roundWin === "tie") {
-        roundWinner.textContent = "It's a tie!"
+        test = roundWinner.textContent = "It's a tie!"
     } else if (roundWin === "player") {
-        roundWinner.textContent = "You won this round!";
+        test = roundWinner.textContent = "You won this round!";
     } else if (roundWin === "computer") {
-        roundWinner.textContent = "You lost this round";
+        test = roundWinner.textContent = "You lost this round";
     }
 
     playerPoints.textContent = `Player points: ${playerCount}`;
     cpuPoints.textContent = `Computer points: ${computerCount}`;
+
+    return test;
 }
 
+//Function to outprint the winner of the game
 function gameIsWon() {
     if (playerCount === 5){
-        return displayWinner.textContent = "YOU WIN OSTI T'ES L'MEILLEUR";
+        finalResult.textContent = "YOU WIN!!!";
+        return endGameModal();
     } else if (computerCount === 5){
-        return displayWinner.textContent = "T'AS PERDU OSTI QUE TU SUCK";
+        finalResult.textContent = "YOU LOST :(";
+        return endGameModal();
     }
+
+}
+
+//Function to open the modal when the game is over
+function endGameModal() {
+    modal.style.display = "flex";
+}
+
+//Function for the buttons effect
+function buttonPressed(button) {
+    button.classList.add('pressedButton');
+
+    setTimeout(function(){
+        button.classList.remove('pressedButton');
+    }, 150);
+}
+
+//Function to restart the game
+function restartGame() {
+    playerCount = 0;
+    computerCount = 0;
+    playerChoice;
+    computerChoice;
+    roundWin = "";
+
+    myChoice.textContent = `PLAYER CHOICE:`;
+    cpuChoice.textContent = `COMPUTER CHOICE:`;
+    playerPoints.textContent = `Score:`;
+    cpuPoints.textContent = `Score:`;
+
+    modal.style.display = "none";
 }

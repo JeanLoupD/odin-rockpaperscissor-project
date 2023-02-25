@@ -5,26 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="javascript.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <title style="justify-content: fle;">Odin Project Javascript</title>
 </head>
 <body>
-	<h1>ROCK PAPER SCISSOR GAMES ULTIMATE CHAMPIONSHIP</h1>
-    <button id="rock">ROCK</button>
-    <button id="paper">PAPER</button>
-    <button id="scissor">SCISSOR</button>
+    <div class="header-section">
+        <h1>ROCK PAPER SCISSOR</h1>
+    </div>
 
-    <div>
-        <h2 id="pointSection">Points Section</h2>
-        <p id="playerScore"></p>
-        <p id="computerScore"></p>
+    <h1 class="gameRule">First player to 5 points wins!</h1>
+
+    <div class="stats">
+        <div class="playerStats">
+            <h2>Player Card</h2>
+            <p id="myChoice">PLAYER CHOICE:</p>
+            <p id="playerScore">Score:</p>
+        </div>
+        <div class="playerStats">
+            <h2>Computer Card</h2>
+            <p id="cpuChoice">COMPUTER CHOICE:</p>
+            <p id="computerScore">Score:</p>
+        </div>
     </div>
 
     <div>
-        <h1 id="roundSection"></h1>
+        <h1 id="roundSection">ROUND RESULT</h1>
     </div>
 
-    <div>
-        <p id="displayWinner" style="color:red; font-size: x-large; font-weight: bolder;"></p>
+    <div class="button-div">
+        <div>
+            <button id="rock" class="button-wrapper">
+                <img src="./image/rock.png" alt="rock">
+            </button>
+        </div>
+        <div>
+            <button id="paper" class="button-wrapper">
+                <img src="./image/paper.png" alt="paper">
+            </button>
+        </div>
+        <div>
+            <button id="scissor" class="button-wrapper">
+                <img src="./image/scissor.png" alt="scissor">
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        Odin Project - JeanLoupD
+        <a href="https://github.com/JeanLoupD/JeanLoupD">
+            <img src="./image/github2.png" alt="githublogo">
+        </a>
+    </footer>
+
+    <!-- Modal when the game is over -->
+    <div id="modal" class="modal-container">
+        <div class="modal-content">
+            <p id="finalResult">You lost :(</p>
+            <button id="restartBtn">Restart ?</button>
+        </div>
+        <a href="#" class="closeoverlay"></a>
     </div>
 </body>
 </html>
